@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Animation Styles -->
+  <style>
+    /* Keyframe Animations */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes blob {
+      0% { transform: translate(0px, 0px) scale(1); }
+      33% { transform: translate(30px, -50px) scale(1.1); }
+      66% { transform: translate(-20px, 20px) scale(0.9); }
+      100% { transform: translate(0px, 0px) scale(1); }
+    }
+    @keyframes text-gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Animation Classes */
+    .animate-fadeIn {
+      animation: fadeIn 0.8s ease-out forwards;
+    }
+    .animate-blob {
+      animation: blob 10s infinite ease-in-out;
+    }
+    .animate-text-gradient {
+      background-size: 200% auto;
+      animation: text-gradient 3s ease infinite;
+    }
+    .animation-delay-2000 {
+      animation-delay: 2s;
+    }
+    .animation-delay-4000 {
+      animation-delay: 4s;
+    }
+
+    /* Custom Transitions */
+    .transition-all {
+      transition-property: all;
+    }
+    .duration-500 {
+      transition-duration: 500ms;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-purple-900 to-blue-900 min-h-screen text-white">
+
+  <!-- Animated Background Elements -->
+  <div class="fixed inset-0 overflow-hidden">
+    <div class="absolute top-0 left-0 w-64 h-64 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
+    <div class="absolute top-0 right-0 w-64 h-64 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+    <div class="absolute bottom-0 left-0 w-64 h-64 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
+  </div>
+
+  <!-- Navbar -->
+  <header class="relative z-10 flex items-center justify-between bg-blue-400/50 backdrop-blur-sm px-4 py-3 shadow-lg">
+    <div class="text-xl font-bold tracking-tight hover:text-blue-100 transition-all duration-300 transform hover:scale-105">
+      <span class="bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">YourLogo</span>
+    </div>
+    <nav>
+      <ul class="flex gap-6">
+        <li class="hover:text-gray-200 cursor-pointer transition-all duration-300 transform hover:scale-110 relative group">
+          Home
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+        </li>
+        <li class="hover:text-gray-200 cursor-pointer transition-all duration-300 transform hover:scale-110 relative group">
+          About
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+        </li>
+        <li class="hover:text-gray-200 cursor-pointer transition-all duration-300 transform hover:scale-110 relative group">
+          Contact
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+        </li>
+      </ul>
+    </nav>
+    <div class="flex gap-3">
+      <a href="signin.html" title="SignUp">
+        <button class="relative overflow-hidden bg-blue-600/90 hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 px-4 py-2 rounded-tl-2xl rounded-br-2xl shadow-lg group">
+          <span class="relative z-10">SignUp</span>
+          <span class="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+        </button>
+      </a>
+      <a href="login.html" title="Login">
+        <button class="relative overflow-hidden bg-blue-600/90 hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 px-4 py-2 rounded-tl-2xl rounded-br-2xl shadow-lg group">
+          <span class="relative z-10">Login</span>
+          <span class="absolute inset-0 bg-gradient-to-r from-blue-500 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
+        </button>
+      </a>
+    </div>
+  </header>
+
+  <!-- Sign Up Form -->
+  <main class="relative z-10 flex items-center justify-center h-screen">
+    <div class="bg-white/10 backdrop-blur-lg border border-white/10 p-8 rounded-2xl w-full max-w-md shadow-2xl transform transition-all duration-500 animate-fadeIn hover:shadow-blue-500/30">
+      <!-- Animated Title -->
+      <div class="text-center mb-8">
+        <h2 class="text-3xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-300 to-blue-500 animate-text-gradient">
+          Hello User
+        </h2>
+        <p class="text-blue-200">Please enter your details to sign Up</p>
+      </div>
+
+      <!-- Form Fields -->
+      <form class="space-y-6">
+        <!-- Email -->
+        <div class="relative group">
+            <div 
+              class=" text-blue-200 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-white/60 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-blue-200 peer-focus:text-sm">
+              Email Address
+            </div>
+            <input id="email" type="email" required placeholder="xyz@abc.com"
+            class="w-full  border-b-4 border-white/20 rounded-br-2xl rounded-tl-2xl focus:border-blue-400 py-2 px-1 text-black focus:outline-none peer transition-all duration-500"/>
+          <div id="entemail" class="text-red-400 text-xs mt-1"></div>
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 hover:w-full bg-blue-400 transition-all duration-300 "></span>
+        </div>
+        
+        <!-- Username -->
+        <div class="relative group">
+            <div 
+            class="text-blue-200 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-white/60 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-blue-200 peer-focus:text-sm">
+            Username
+        </div>
+        <input id="usern" type="text" required placeholder="Enter the User Name"
+        class="w-full border-b-4 border-white/20 rounded-br-2xl rounded-tl-2xl focus:border-blue-400 py-2 px-1 text-black focus:outline-none peer transition-all duration-500"/>
+        <div id="entuser" class="text-red-400 text-xs mt-1"></div>
+        <span class="absolute bottom-0 left-0 w-0 h-0.5 group-hover:w-full bg-blue-400 transition-all duration-500 "></span>
+        </div>
+
+        <!-- Password -->
+        <div class="relative group">
+            <div 
+              class="text-blue-200 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-white/60 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-blue-200 peer-focus:text-sm">
+              Password
+            </div>
+          <input id="pwd" type="password" required placeholder="Enter the Password"
+            class="w-full bg-white/5 border-b-4 border-white/20 rounded-br-2xl rounded-tl-2xl focus:border-blue-400 py-2 px-1 text-black  focus:outline-none peer transition-all duration-500"/>
+          <div id="entpwd" class="text-red-400 text-xs mt-1"></div>
+          <div class="w-0 h-0.5 z-10 bg-blue-400 transition-all duration-500 hover:w-full"></div>
+        </div>
+
+        <!-- Submit Button -->
+        <button id="btm" type="button"
+          class="w-full relative overflow-hidden bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white py-3 px-4 rounded-lg shadow-lg transition-all duration-500 transform hover:scale-[1.02] group">
+          <span class="relative z-10 flex items-center justify-center">
+            <span class="mr-2">Sign In</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </span>
+          <span class="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+        </button>
+      </form>
+
+      <!-- Footer Links -->
+      <div class="mt-6 text-center text-sm text-blue-200">
+        <span class="hover:text-white transition-colors duration-300">Already have account?</span>
+        <span class="mx-2">•</span>
+        <a href="login.html" class="hover:text-white transition-colors duration-300">Login account</a>
+      </div>
+    </div>
+  </main>
+
+
+  <script src="script1.js"></script>
+</body>
+</html>

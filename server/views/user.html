@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Information Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0px); }
+        }
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-float { animation: float 6s ease-in-out infinite; }
+        .animate-fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        .animate-gradient { 
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+    </style>
+</head>
+<body class="animate-gradient bg-gradient-to-br from-gray-800 via-blue-900 to-purple-800 min-h-screen">
+    <!-- Animated background elements -->
+    <div class="fixed inset-0 overflow-hidden z-0">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full opacity-10 blur-xl animate-float"></div>
+        <div class="absolute top-1/3 right-1/4 w-72 h-72 bg-purple-500 rounded-full opacity-10 blur-xl animate-float animation-delay-2000"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-60 h-60 bg-indigo-500 rounded-full opacity-10 blur-xl animate-float animation-delay-4000"></div>
+    </div>
+
+    <!-- Header -->
+    <header class="relative z-10 flex justify-between items-center h-16 mt-5 bg-blue-400/80 backdrop-blur-md shadow-lg px-6">
+        <div class="text-white font-bold text-lg tracking-wider hover:text-blue-100 transition-all duration-300 hover:scale-105">
+            Your Logo
+        </div>
+        <nav>
+            <ul class="flex gap-6">
+                <li class="text-white hover:text-blue-100 transition-all duration-200 hover:scale-105 cursor-pointer">Home</li>
+                <li class="text-white hover:text-blue-100 transition-all duration-200 hover:scale-105 cursor-pointer">About</li>
+                <li class="text-white hover:text-blue-100 transition-all duration-200 hover:scale-105 cursor-pointer">Contact</li>
+            </ul>
+        </nav>
+        <div class="flex items-center gap-4">
+            <div class="text-white font-medium bg-blue-600/90 px-3 py-1 rounded-full" id="userN">
+                Admin
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Form -->
+    <main class="relative z-10 w-full min-h-[calc(100vh-5rem)] flex justify-center items-center p-4">
+        <div class="bg-white/10 backdrop-blur-lg border border-white/10 w-full max-w-2xl rounded-2xl shadow-2xl animate-fade-in overflow-hidden">
+            <div class="h-16 w-full flex justify-center items-center bg-blue-400/30 border-b border-white/10">
+                <h2 class="text-2xl font-semibold text-white">Business Information</h2>
+            </div>
+            
+            <div class="p-6 space-y-6">
+                <!-- Business Name -->
+                <div class="group">
+                    <label for="BusinessN" class="block text-white/80 mb-2 group-hover:text-white transition-colors duration-300">Business Name</label>
+                    <input id="BusinessN" 
+                           class="w-full bg-yellow-200/90 h-10 rounded-xl shadow-lg shadow-blue-500/30 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-yellow-100 transition-all duration-300 text-gray-800 placeholder-gray-600"
+                           type="text" 
+                           placeholder="Enter the Business Name">
+                    <div id="entBusin" class="text-red-400 text-xs mt-1"></div>
+                </div>
+                
+                <!-- Sector -->
+                <div class="group">
+                    <label for="Sector" class="block text-white/80 mb-2 group-hover:text-white transition-colors duration-300">Sector</label>
+                    <div class="relative">
+                        <select id="Sector" 
+                                class="w-full bg-yellow-200/90 h-10 rounded-xl shadow-lg shadow-blue-500/30 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-yellow-100 transition-all duration-300 text-gray-800 appearance-none pr-8">
+                            <option value="Retail">Retail</option>
+                            <option value="Manufacturing">Manufacturing</option>
+                            <option value="IT Services">IT Services</option>
+                            <option value="Agriculture">Agriculture</option>
+                            <option value="Healthcare">Health Care</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="entsector" class="text-red-400 text-xs mt-1"></div>
+                </div>
+                
+                <!-- Company Size -->
+                <div class="group">
+                    <label for="compSize" class="block text-white/80 mb-2 group-hover:text-white transition-colors duration-300">Size</label>
+                    <div class="relative">
+                        <select id="compSize" 
+                                class="w-full bg-yellow-200/90 h-10 rounded-xl shadow-lg shadow-blue-500/30 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-yellow-100 transition-all duration-300 text-gray-800 appearance-none pr-8">
+                            <option value="medium">Medium</option>
+                            <option value="mini">Mini</option>
+                            <option value="micro">Micro</option>
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="entsize" class="text-red-400 text-xs mt-1"></div>
+                </div>
+                
+                <!-- Location -->
+                <div class="group">
+                    <label for="state" class="block text-white/80 mb-2 group-hover:text-white transition-colors duration-300">Location</label>
+                    <div class="relative">
+                        <select id="state" 
+                                class="w-full bg-yellow-200/90 h-10 rounded-xl shadow-lg shadow-blue-500/30 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-yellow-100 transition-all duration-300 text-gray-800 appearance-none pr-8">
+                            <!-- States will be populated by JavaScript -->
+                        </select>
+                        <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="entloc" class="text-red-400 text-xs mt-1"></div>
+                </div>
+                
+                <!-- Last Year Revenue -->
+                <div class="group">
+                    <label for="lastYRev" class="block text-white/80 mb-2 group-hover:text-white transition-colors duration-300">Last Year Revenue</label>
+                    <input id="lastYRev" 
+                           class="w-full bg-yellow-200/90 h-10 rounded-xl shadow-lg shadow-blue-500/30 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-yellow-100 transition-all duration-300 text-gray-800 placeholder-gray-600"
+                           type="number" 
+                           placeholder="Enter the last year revenue">
+                    <div id="entlyr" class="text-red-400 text-xs mt-1"></div>
+                </div>
+                
+                <!-- Submit Button -->
+                <div class="pt-4">
+                    <button id="btm" 
+                            class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white h-12 rounded-xl shadow-lg shadow-blue-500/30 transition-all duration-300 hover:scale-[1.02] active:scale-95 flex justify-center items-center gap-2">
+                        <span>Submit</span>
+                        <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script3.js" type="module"></script>
+</body>
+</html>

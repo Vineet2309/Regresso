@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Login</title>
+    <link rel="stylesheet" type='text/css' href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100%{ transform:translateY(0px);}
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; 
+                transform: translateY(20px);
+             }
+            to { opacity: 1; transform: translateY(0px); }
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100%{opacity:1;}
+        }
+        .animate-float { 
+            animation: float 3s ease-in-out infinite; 
+        }
+        .animate-fade-in { 
+            animation: fadeIn 0.8s ease-out forwards; 
+        }
+        .animate-pulse { 
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; 
+        }
+        .animation-delay-2000 {
+            animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+            animation-delay: 4s;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 min-h-screen">
+    <!-- Animated background elements -->
+    <div class="fixed inset-0 overflow-hidden z-0">
+        <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-blue-500 rounded-full opacity-10 blur-xl animate-float"></div>
+        <div class="absolute top-1/3 right-1/4 w-72 h-72 bg-purple-500 rounded-full opacity-10 blur-xl animate-float animation-delay-2000"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-60 h-60 bg-indigo-500 rounded-full opacity-10 blur-xl animate-float animation-delay-4000"></div>
+    </div>
+
+    <!-- Navbar -->
+    <div class="relative z-10 flex justify-between items-center h-16 mt-5 bg-blue-400/50 backdrop-blur-md shadow-lg">
+        <div class="ml-6">
+            <div class="text-white font-bold text-lg tracking-wider hover:text-blue-100 transition-all duration-300 hover:scale-105">
+                Your Logo
+            </div>
+        </div>
+        <div class="">
+            <ul class="w-48 flex justify-between mr-4">
+                <li class="text-white hover:text-blue-100 transition-all duration-200 hover:scale-105">Home</li>
+                <li class="text-white hover:text-blue-100 transition-all duration-200 hover:scale-105">About</li>
+                <li class="text-white hover:text-blue-100 transition-all duration-200 hover:scale-105">Contact</li>
+            </ul>
+        </div>
+        <div class="mr-6 flex gap-3">
+            <button class="text-white px-4 py-1 rounded-br-2xl rounded-tl-2xl bg-blue-600/90 hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-md">
+                <a href="signin.html" title="signin">Signin</a>
+            </button>
+            <button class="text-white px-4 py-1 rounded-br-2xl rounded-tl-2xl bg-blue-600/90 hover:bg-blue-700 transition-all duration-300 hover:scale-105 shadow-md">
+                <a href="login.html" title="login">Login</a>
+            </button>
+        </div>
+    </div>
+
+    <!-- Login Form -->
+    <div class="relative z-10 w-full h-screen flex justify-center items-center">
+        <div class="bg-white/10 backdrop-blur-lg border border-white/10 w-lg h-4/6 rounded-2xl shadow-2xl animate-fade-in overflow-hidden hover:scale-105 duration-700">
+            <div class="h-14 w-full rounded-t-2xl flex justify-center items-center bg-blue-400/20">
+                <div class="text-2xl font-semibold text-white">Login</div>
+            </div>
+            
+            <div class="h-14 w-full hidden rounded-t-2xl flex justify-center items-center bg-red-500/20 animate-pulse" id="errContainer">
+                <div class="text-lg font-medium text-red-400 text-center" id="errM"></div>
+            </div>
+            
+            <div class="p-6 space-y-5">
+                <!-- Email Field -->
+                <div class="group pt-10">
+                    <label for="email" class="block text-white/80 mb-1 group-hover:text-white transition-colors duration-300">Email</label>
+                    <input id="email" class="w-full bg-yellow-200/90 h-10 rounded-br-2xl rounded-tl-2xl shadow-lg shadow-blue-500/30 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-yellow-100 transition-all duration-300 text-gray-800" 
+                           type="email" required placeholder="abcxyz@gmail.com">
+                    <div id="entemail" class="text-red-400 text-xs mt-1"></div>
+                </div>
+                
+                <!-- Password Field -->
+                <div class="group pt-10">
+                    <label for="pwd" class="block text-white/80 mb-1 group-hover:text-white transition-colors duration-300">Password</label>
+                    <input id="pwd" class="w-full bg-yellow-200/90 h-10 rounded-br-2xl rounded-tl-2xl shadow-lg shadow-blue-500/30 px-4 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:bg-yellow-100 transition-all duration-300 text-gray-800" 
+                           type="password" required placeholder="Enter the Password">
+                    <div id="entpwd" class="text-red-400 text-xs mt-1"></div>
+                </div>
+                
+                <!-- Submit Button -->
+                <div class="pt-10">
+                    <button id="btm" class="w-full bg-blue-400 hover:bg-blue-500 text-white h-10 rounded-br-2xl rounded-tl-2xl shadow-lg shadow-blue-500/30 transition-all duration-300 hover:scale-[1.02] active:scale-95 flex justify-center items-center">
+                        <span id="btmlink" class="w-full h-full flex items-center justify-center">Submit</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Footer Links -->
+            <div class="mt-1 z-10 text-center text-sm text-blue-200">
+                <span class="hover:text-white transition-colors duration-300">didn't have account?</span>
+                <span class="mx-2">•</span>
+                <a href="signin.html" class="hover:text-white transition-colors duration-300">Sign Up account</a>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="script2.js"></script>
+</body>
+</html>

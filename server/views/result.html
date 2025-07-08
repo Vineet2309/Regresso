@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'wave': 'wave 2s linear infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(20px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        wave: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '10%': { transform: 'rotate(14deg)' },
+                            '20%': { transform: 'rotate(-8deg)' },
+                            '30%': { transform: 'rotate(14deg)' },
+                            '40%': { transform: 'rotate(-4deg)' },
+                            '50%': { transform: 'rotate(10deg)' },
+                            '60%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(0deg)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-800 min-h-screen">
+    <!-- Animated Navbar -->
+    <div class="relative flex justify-between items-center h-16 mt-5 bg-blue-400/80 backdrop-blur-md shadow-lg px-6 animate-slide-up">
+        <div class="text-white font-bold text-lg tracking-wider hover:text-blue-100 transition-all duration-300 hover:scale-105 animate-wave hover:animate-none">
+            Your Logo
+        </div>
+        <nav>
+            <ul class="flex gap-6">
+                <li class="text-white hover:text-blue-100 transition-all duration-200 hover:scale-105 cursor-pointer hover:animate-bounce-slow">Home</li>
+                <li class="text-white hover:text-blue-100 transition-all duration-200 hover:scale-105 cursor-pointer hover:animate-bounce-slow">About</li>
+                <li class="text-white hover:text-blue-100 transition-all duration-200 hover:scale-105 cursor-pointer hover:animate-bounce-slow">Contact</li>
+            </ul>
+        </nav>
+        <div class="flex items-center gap-4">
+            <div class="text-white font-medium bg-blue-600/90 px-3 py-1 rounded-full hover:animate-pulse-slow" id="userN">
+                Admin
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Content with Staggered Animations -->
+    <div class="w-full my-5 bg-gradient-to-r from-blue-600 to-purple-600 flex justify-center items-center animate-fade-in">
+        <div class="w-full max-w-4xl space-y-4 p-4">
+            <!-- Each card has a different animation delay for staggered effect -->
+            <div class="w-full text-2xl py-3 my-3 text-white text-center bg-purple-600/90 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:bg-purple-700 animate-slide-up" 
+                 style="animation-delay: 0.1s" id="compN">company name</div>
+            
+            <div class="w-full text-2xl py-3 my-3 text-white text-center bg-purple-600/90 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:bg-purple-700 animate-slide-up" 
+                 style="animation-delay: 0.2s" id="sugg">suggestion</div>
+            
+            <div class="w-full text-2xl py-3 my-3 text-white text-center bg-purple-600/90 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:bg-purple-700 animate-slide-up" 
+                 style="animation-delay: 0.3s" id="impS">Impact Score</div>
+            
+            <div class="w-full text-2xl py-3 my-3 text-white text-center bg-purple-600/90 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:bg-purple-700 animate-slide-up" 
+                 style="animation-delay: 0.4s" id="gstChange">gstChange</div>
+            
+            <div class="w-full text-2xl py-3 my-3 text-white text-center bg-purple-600/90 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:bg-purple-700 animate-slide-up" 
+                 style="animation-delay: 0.5s" id="corpTaxC">CropTaxChange</div>
+            
+            <div class="w-full text-2xl py-3 my-3 text-white text-center bg-purple-600/90 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:bg-purple-700 animate-slide-up" 
+                 style="animation-delay: 0.6s" id="budgetAlloc">budget allocation</div>
+            
+            <div class="w-full text-2xl py-3 my-3 text-white text-center bg-purple-600/90 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:bg-purple-700 animate-slide-up" 
+                 style="animation-delay: 0.7s" id="poliSent">policy sentiment</div>
+            
+            <div class="w-full text-2xl h-96 py-3 my-3 text-white text-center flex items-center justify-center bg-purple-600/90 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:bg-purple-700 animate-float" 
+                 style="animation-delay: 0.8s"><img id="img1" class="h-80 w-96 object-cover rounded-md"></div>
+            
+            <div class="w-full text-2xl h-96 py-3 my-3 text-white text-center flex items-center justify-center bg-purple-600/90 rounded-lg shadow-lg hover:scale-105 transition-all duration-300 hover:shadow-xl hover:bg-purple-700 animate-float" 
+                 style="animation-delay: 0.9s"><img id="img2" class="h-80 w-96 object-cover rounded-md"></div>
+        </div>
+    </div>
+
+    <script src="script4.js"></script>
+</body>
+</html>
