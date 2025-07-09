@@ -18,7 +18,7 @@ const isLoggedIn = sessionStorage.getItem('isLoggedIn');
 const username = sessionStorage.getItem('username');
 
 async function fetching(data){
-    const res=await fetch('https://regresso.onrender.com/user.html',{
+    const res=await fetch('http://127.0.0.1:5500/user.html',{
         method:'POST',
         headers:{
             'Content-Type':'application/json'
@@ -67,12 +67,12 @@ if (username&&isLoggedIn==='true') {
       console.log(await InfoData);
       if(InfoData){
         sessionStorage.setItem('formFilled','true');
-        window.location.href="https://regresso.onrender.com/result.html";
+        window.location.href="http://127.0.0.1:5500/result.html";
       }
     }
   })
 
 
 }else{
-    window.location.href="https://regresso.onrender.com/login.html"
+    window.location.href="http://127.0.0.1:5500/login.html"
 }
