@@ -37,7 +37,7 @@ btm.addEventListener("click",()=>{
         .then(res=>res.json())
         .then(data=>{
             console.log(data.success);
-            window.location.replace("http://127.0.0.1:5500/login.html");
+            window.location.replace("https://regresso.onrender.com/login.html");
         })
         .catch(err=>console.error(err))
     }
