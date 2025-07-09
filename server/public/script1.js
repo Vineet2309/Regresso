@@ -27,7 +27,7 @@ btm.addEventListener("click",()=>{
             "password":`${pwd.value}`
         };
         console.log(data);
-        fetch("https://regresso.onrender.com/signin",{
+        fetch("http://127.0.0.1:5500/signin",{
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -37,7 +37,7 @@ btm.addEventListener("click",()=>{
         .then(res=>res.json())
         .then(data=>{
             console.log(data.success);
-            window.location.replace("https://regresso.onrender.com/login.html");
+            window.location.replace("http://127.0.0.1:5500/login.html");
         })
         .catch(err=>console.error(err))
     }
