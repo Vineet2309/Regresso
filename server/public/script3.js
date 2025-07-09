@@ -67,7 +67,7 @@ if (username&&isLoggedIn==='true') {
       console.log(await InfoData);
       if(InfoData){
         sessionStorage.setItem('formFilled','true');
-        window.location.href="http://127.0.0.1:5500/result.html";
+        window.location.href="https://regresso.onrender.com/result.html";
       }
     }
   })
