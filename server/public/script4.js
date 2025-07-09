@@ -12,7 +12,7 @@ const img2=document.querySelector('#img2');
 const username = sessionStorage.getItem('username');
 const formFilled = sessionStorage.getItem('formFilled');
 async function fetching(){
-    const res=await fetch('https://regresso.onrender.com/result.html',{
+    const res=await fetch('http://127.0.0.1:5500/result.html',{
         method:"POST",
         headers:{
             'Content-Type':'application/json'
@@ -39,5 +39,5 @@ if(username&&formFilled=='true'){
     }
     fetching2();
 }else{
-    window.location.href="https://regresso.onrender.com/login.html";
+    window.location.href="http://127.0.0.1:5500/login.html";
 }
