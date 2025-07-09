@@ -11,7 +11,7 @@ let Info,data;
 let arr1=[Email,pwd];
 let arr2=[entemail,entpwd];
 async function fetching(data) {
-    const res=await fetch("http://127.0.0.1:5500/login.html",{
+    const res=await fetch("https://regresso.onrender.com/login.html",{
         method:'POST',
         headers:{
             'Content-Type':'application/json'
@@ -24,7 +24,7 @@ async function fetching(data) {
         let Info=await ele.data;
         sessionStorage.setItem('username', Info.username);
         sessionStorage.setItem('isLoggedIn', 'true');
-        window.location.href="http://127.0.0.1:5500/user.html";
+        window.location.href="https://regresso.onrender.com/user.html";
         return Info;
     }else{
         errContainer.style.display='block';
